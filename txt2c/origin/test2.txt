@@ -1,0 +1,23 @@
+#include <iostream>  
+#include <stdio.h>  
+using namespace std;  
+  
+int main(int argc, char *argv[])  
+{  
+    FILE *fp1;  
+    fp1 = fopen(argv[1], "r");  
+    FILE *fp2;  
+    fp2 = fopen(argv[2], "w");  
+  
+    char buff[200] = {'\0'};  
+    while(fgets(buff, sizeof(buff), fp1) != NULL)  
+    {  
+    fputs(buff, fp2);  
+    }  
+  
+    fclose(fp1);  
+    fclose(fp2);  
+  
+    return 0;  
+      
+}  

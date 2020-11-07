@@ -38,4 +38,4 @@ class TxT(object):
 		list_txt=[i for i in self.__list_file if os.path.splitext(i)[1] == '.txt']    #存储所有.txt文件
 		for item in list_txt:
 			os.rename(item,os.path.splitext(item)[0]+'.c')   #把每个txt文件重组成名字+.c后缀的文件
-		print('文件转换成功！')
+		print('Successfully converted file！')

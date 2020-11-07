@@ -40,3 +40,23 @@ WeChat：Luoxi__0429
 前缀r是python的不转义标志，加上它后，在windows下用'/'或'\'都可以，其他系统我不知道。
 	我把转换后的.c文件放入MOSS后运行成功，没有什么问题，不过注意要全英文路径+全英文名！
 	大概就这样了吧，欢迎大家加我一起交♂流，或者加入一起完成
+
+2020/11/7
+第二次更新：
+	今天有点比较闲的时间，所有就去网上查了资料，看看是用什么方法将word文档转为.c文件的，后来我就
+感觉word转txt也行，因为我们本来就是txt转c，所以后面就查到了word转txt的方法，然后把它编写成了一个
+模块，即txt2c/word.py，要正常运行该模块，环境如下：
+# requirement:
+#    1. Windows platform
+#    2. python 2.7(以上)
+#    3. pywin32, pip install pywin32
+#    4. word application installed on running machine(如果直接使用我的word模块，就需要金山wps)
+该模块的注释也全部写在了代码里，还是比较容易懂的，这里就不解释了
+	在主模块change中稍微做了点修改，把路径用os.getcwd()来完善了，使得想要修改自己的目录更加容易，
+只要这些py文件放在跟origin和result目录 同一目录下即可，也可以自己修改。同时在：
+							test=TxT(origin,result)
+这个语句前加上了：
+							Word(origin).convert()  
+目的就是先把word转为txt，同时对于转换成功的word会在原目录下删掉，转换不成功的会保留（不成功很少见，
+我也不知道啥原因，一般不会出错，doc和docx都能成功）
+	同时，我也在origin目录下放了几个word、txt、c文件可以直接用来测试一下
